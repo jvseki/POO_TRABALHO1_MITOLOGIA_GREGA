@@ -1,18 +1,34 @@
-from Entidades import Entidade
+from entidades.Entidades import Entidade
 
 class Jogador(Entidade):
-    def __init__(self, nome:str, poder:int, defesa:int, vida_maxima:int, vida_atual, esquiva:int, nivel:int, xp:int):
+    def __init__(
+        self,
+        nome,
+        poder=10,
+        defesa=5,
+        vida_maxima=100,
+        vida_atual=100,
+        esquiva=10,
+        nivel=1,
+        xp=0
+    ):
         super().__init__(nome, poder, defesa, vida_maxima, vida_atual, esquiva)
         self.nivel = nivel
         self.xp = xp
 
-player=Jogador("Lukinha", 10, 5, 100, 100, 20, 1, 0)
+    def ganhar_xp(self, quantidade):
+        self.xp += quantidade
+        print(f"{self.nome} ganhou {quantidade} XP!")
 
-print(f"Nome do jogador: {player.nome}")
-print(f"Poder: {player.poder}")
-print(f"Defesa: {player.defesa}")
-print(f"Vida: {player.vida_atual} / {player.vida_maxima}")
-print(f"Esquiva: {player.esquiva}%")
-print(f"Nível: {player.nivel}")
-print(f"XP: {player.xp}")
+        if self.xp >= 100:
+            self.subir_nivel()
 
+    def subir_nivel(self):
+        self.nivel += 1
+        self.xp = 0
+        self.poder += 5
+        self.defesa += 3
+        self.vida_maxima += 20
+        self.vida_atual = self.vida_maxima
+
+        print(f"⭐ {self.nome} subiu para o nível {self.nivel}!")

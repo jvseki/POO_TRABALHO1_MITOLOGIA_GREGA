@@ -1,37 +1,25 @@
-class Ninja:
-    def __init__(self, nacao, vila):
-        self.nacao = nacao
-        self.vila = vila
-        
-    def atacar(self):
-        print("Joga Shuriken!")
+from entidades.jogador import Jogador
+from entidades.inimigo import Inimigo
+from raças.raca import semideus
+from deuses.deus import zeus
+from vocacoes.invocacao import Invocacao
 
-    def defesa(self):
-        return "Jutsu substituição!"
+if __name__ == "__main__":
 
+    player = Jogador("Tabeli")
 
-class Ambu(Ninja):
-    def __init__(self, nacao, vila, especialidade):
-        super().__init__(nacao, vila)
-        self.especialidade = especialidade
+    semideus.aplicar_bonus(player)
+    zeus.abencoar(player)
 
+    minotauro = Inimigo("Minotauro", 20, 8, 150, 150, 5, "Monstro")
 
+    ciclope = Invocacao("Ciclope", 18, 6, 80, 80, 10, "Poseidon")
 
-n1 = Ninja("Fogo", "Folha")
+    print("\n⚔️ BATALHA COMEÇA ⚔️\n")
 
-print(f"De onde veio o ninja? {n1.nacao} e {n1.vila}")
-n1.atacar()
-print(n1.defesa())
+    player.atacar(minotauro)
+    minotauro.atacar(player)
+    ciclope.habilidade_divina(minotauro)
 
-
-print("-" * 40)
-
-
-a1 = Ambu("Montanha", "Folha", "Água")
-
-print(f"De onde veio o ninja? {a1.nacao} e {a1.vila}")
-print(f"Qual é a especialidade dele? {a1.especialidade}")
-a1.atacar()
-print(a1.defesa())
-
-    
+    if not minotauro.esta_vivo():
+        player.ganhar_xp(100)
