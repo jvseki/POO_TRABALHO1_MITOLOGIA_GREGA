@@ -5,6 +5,8 @@ from vocacoes.invocacao import obter_vocacao
 from Sistema.combate import combate
 from desafios.desafios import DesafioBau
 
+print("Era uma vez na antiga grecia, nasce um guerreiro capaz de derrotar Zeus, em uma de suas batalhas anteriores, ele sofreu um ataque, que acabou afetadando a memoria, Agora ele não lembra o nome, a raça e sua classe. Hoje ele parte em uma jornada de vingança contra o inimigo que o fez perder a memoria, lutando contra todos os seres da grecia até que consiga encontrar o seu alvo.")
+
 def criar_personagem():
     print("CRIACAO DE PERSONAGEM")
     nome = input("Nome do heroi: ")
