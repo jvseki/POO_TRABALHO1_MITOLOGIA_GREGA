@@ -1,5 +1,5 @@
-from entidades.Entidades import Entidade
-from Sistema.level import calculo_nivel, upando_status
+from entidades.entidades import Entidade
+from sistema.level import calculo_nivel, upando_status
 
 class Jogador(Entidade):
     def __init__(self, nome):

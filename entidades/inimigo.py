@@ -1,5 +1,5 @@
 from random import randint
-from entidades.Entidades import Entidade
+from entidades.entidades import Entidade
 
 class Inimigo(Entidade):
     def __init__(self, nome, poder, defesa, vida_maxima, esquiva, xp_drop):
